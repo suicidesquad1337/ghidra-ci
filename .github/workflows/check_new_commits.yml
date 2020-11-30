@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: NationalSecurityAgency/Ghidra
+          repository: Lockna/Ghidra
       - name: Check for new commits
         id: check
         run: |
