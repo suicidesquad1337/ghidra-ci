@@ -1,13 +1,5 @@
 name: Ghidra Build
-on:
-  workflow_dispatch:
-    inputs:
-      prevRev:
-        description: 'Revision of the previous release'
-        required: false
-      rev:
-        description: 'NationalSecurityAgency/ghidra commit to build'
-        required: true
+on: [push, pull_request]
 
 jobs:
   build-windows:
@@ -16,8 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: NationalSecurityAgency/Ghidra
-          ref: ${{ github.event.inputs.rev }}
+          repository: suicidesquad1337/Ghidra
       - uses: actions/setup-java@v1
         with:
           java-version: 11
@@ -46,8 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: NationalSecurityAgency/Ghidra
-          ref: ${{ github.event.inputs.rev }}
+          repository: suicidesquad1337/Ghidra
       - uses: actions/setup-java@v1
         with:
           java-version: 11
@@ -71,8 +61,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: NationalSecurityAgency/Ghidra
-          ref: ${{ github.event.inputs.rev }}
+          repository: suicidesquad1337/Ghidra
       - uses: actions/setup-java@v1
         with:
           java-version: 11
@@ -97,8 +86,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: NationalSecurityAgency/Ghidra
-          ref: ${{ github.event.inputs.rev }}
+          repository: suicidesquad1337/Ghidra
           fetch-depth: 0
       - name: Download windows binaries
         uses: actions/download-artifact@v2
