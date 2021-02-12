@@ -1,5 +1,14 @@
-name: Ghidra Build
-on: [push, pull_request]
+name: Remote Ghidra Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      prevRev:
+        description: 'Revision of the previous release'
+        required: false
+      rev:
+        description: 'suicidesquad1337/ghidra commit to build'
+        required: true
 
 
 jobs:
@@ -156,8 +165,6 @@ jobs:
           tag_name: ${{ steps.date.outputs.date }}
           release_name: Release ${{ steps.date.outputs.date }}(${{ steps.date.outputs.rev }})
           body_path: ./ghidra-ci-roblabla/CHANGELOG.md
-          # TODO: This is a horrible hack.
-          commitish: "master"
           draft: false
           prerelease: false
       - name: Upload Release Asset
